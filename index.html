@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="item in items">{{ item }}</li>
+      </ul>
+      <button @click="FnPush">push</button>
+      <button @click="FnPop">pop</button>
+      <button @click="FnShift">shift</button>
+      <button @click="FnUnshift">unshift</button>
+      <button @click="FnSplice">splice</button>
+      <button @click="FnSort">sort</button>
+      <button @click="FnReverse">reverse</button>
+      <button @click="FnIndex">index</button>
+      <button @click="FnMap">map</button>
+
+      <input id="inp">
+
+      <span id="show"></span>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          items: [2, 4, 8, 10],
+          inp: null,
+        },
+        methods: {
+          FnPush() {
+            this.items.push(20)
+          },
+          FnPop() {
+            this.items.pop()
+          },
+          FnShift() {
+            this.items.shift()
+          },
+          FnUnshift() {
+            this.items.unshift(0)
+          },
+          FnSplice() {
+            this.items.splice(1, 1, 'a')
+          },
+          FnSort() {
+            this.items.sort()
+          },
+          FnReverse() {
+            this.items.reverse()
+          },
+          FnIndex() {
+            this.items[1] = 'b'
+          },
+          FnMap() {
+            this.items.map(function() {
+              console.log(this)
+            }, 'aaa')
+          },
+          FnDeb(fn) {
+            var timer = null
+            return function(){
+              clearTimeout(timer)
+              timer = setTimeout(()=> {
+                fn.apply(this, [this])
+              }, 2000)
+            }
+          },
+          FnEvent(that) {
+            console.log("that", that)
+          },
+          FnThr(fn) {
+            var timer = false;
+            return function() {
+              if(timer) {
+
+              }else {
+                timer = true
+                setTimeout(() => {
+                  fn(this, [this])
+                  timer = false
+                }, 1000)
+              }
+            }
+          }
+        },
+        mounted() {
+          document.querySelector("#inp").addEventListener('input', this.FnDeb(this.FnEvent))
+          window.addEventListener('resize', this.FnThr(this.FnEvent))
+
+          function Obj(name) {
+            this.name = name
+          }
+          let obj_1 = new Obj('obj_1')
+          watch(obj_1, 'a', function(value) {
+            document.querySelector('#show').innerHTML = value;
+          })
+          function watch(obj, prop, func) {
+            var b = obj[prop]
+            Object.defineProperty(obj, prop, {
+              get: function() {
+                return b
+              },
+              set: function(value) {
+                b = value
+                func(value)
+              },
+              configurable: true,
+            })
+          }
+          obj_1.a = 'hello world'
+
+          function pWatch(obj, prop, func) {
+            var proxy = new Proxy(obj, {
+              get: function(obj, prop) {
+                return obj[prop]
+              },
+              set: function(obj, prop, value) {
+                obj[prop] = value
+                func(value)
+              }
+            })
+            return proxy
+          }
+          var obj_2 = pWatch({}, 'b', function(value){
+            document.querySelector('#show').innerHTML = value;
+          })
+          obj_2.b = 'hello china'
+        }
+      })
+    </script>
+  </body>
+</html>
