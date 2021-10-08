@@ -35,7 +35,28 @@ function Child_02(type, ...rest) {
 Child_02.prototype = new Parent();
 let child_4 = new Child_02('haha', 'hehe');
 
-// 
+// 原型式继承,ES5通过新增Object.create()方法实现原型，Object.create()传入一个对象，返回一个已传入对象为原型的新对象
+// 缺点：无法拿到父类实例本身的属性和方法
+function Child_03(type) {
+  this.type = type
+}
+Child_03.prototype = Object.create(Parent.prototype)
+
+// 寄生式继承,在子构造函数中，通过Object.create()创建一个新对象，并给新对象添加属性和方法，然后返回新对象
+// 缺点：同样无法拿到父类实例本身的属性和方法, 且
+function Child_04(type) {
+  var clone = Object.create(Parent.prototype);
+  clone.type = type;
+  return clone
+}
+
+// 寄生组合式继承，结合组合继承和原型式继承
+function Child_05(type, ...rest) {
+  this.type = type;
+  Parent.call(this, ...rest)
+}
+Child_05.prototype = Object.create(Parent.prototype)
+
 
 
 
