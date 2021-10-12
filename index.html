@@ -6,7 +6,7 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="item in items">{{ item }}</li>
+        <li v-for="item in items" ref="lil">{{ item }}</li>
       </ul>
       <button @click="FnPush">push</button>
       <button @click="FnPop">pop</button>
@@ -17,7 +17,6 @@
       <button @click="FnReverse">reverse</button>
       <button @click="FnIndex">index</button>
       <button @click="FnMap">map</button>
-
       <input id="inp">
 
       <span id="show"></span>
@@ -32,7 +31,11 @@
         },
         methods: {
           FnPush() {
-            this.items.push(20)
+            this.items.push(20);
+            () => {
+              console.log('aaa')
+            };
+            console.log(this.$refs)
           },
           FnPop() {
             this.items.pop()
