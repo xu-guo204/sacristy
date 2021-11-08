@@ -678,3 +678,8 @@ p1.then(value => {
 
 
 
+console.log(a)
+ 
+let a = [];
+a.push(...[{a: 1}, {a: 2}], {b: 4})
+console.log(a)
