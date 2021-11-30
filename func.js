@@ -27,3 +27,32 @@ const arr7 = arr6.reduce((acc, cur) => {
   return acc
 }, [])
 console.log(arr7)
+
+
+Array.prototype.reduce = function(callback, initiaValue) {
+  let i = 0;
+  if (!initiaValue) {
+    initiaValue = this[0];
+    i++;
+  }
+  while(i < this.length) {
+    initiaValue = callback(initiaValue, this[i], i, this)
+    i++;
+  }
+}
+
+console.time('one')
+const arr8 = [1, 3, 6];
+const sum8 = arr8.reduce((acc, cur, idx, src) => {
+  console.log(acc, cur, idx, src)
+  return acc + cur
+})
+console.timeEnd('one')
+
+
+const arr9 = ['a', 'c', 'd'];
+const val = arr9.find((element) => {
+  return element === 'a'
+})
+console.log(val)
+console.log(arr9.entries().next())

@@ -4,7 +4,7 @@
     {{ name }}
     <div>
       <bf-select v-model="type" @change="FnChangeType">
-        <bf-option v-for="item in type_list" :key="item.value" :value="item.value" :label="item.label"></bf-option>
+        <bf-option v-for="(item) in type_list" :key="item.id" :value="item.id" :label="item.value"></bf-option>
       </bf-select>
       {{ type }}
     </div>
@@ -27,17 +27,27 @@ export default {
     return {
       name: 'hello world',
       type: 'test',
-      type_list: [{
-        label: '测试', value: 'test'
-      }, {
-        label: '生产', value: 'pro'
-      }]
+      type_list: new Array(10000)
     }
   },
   methods: {
     FnChangeType(val) {
-      
+      console.log('val', val)
+    },
+    uuid() {
+      const temp_url = URL.createObjectURL(new Blob());
+      const uuid = temp_url.toString();
+      URL.revokeObjectURL(temp_url);
+      return uuid.substr(uuid.lastIndexOf('/') + 1)
+    } 
+  },
+  created() {
+    console.time('one')
+    for (let i = 0; i < this.type_list.length; i++) {
+      this.$set(this.type_list, i, {value: 'hello' + i, id: this.uuid()})
     }
+    console.timeEnd('one')
+    console.log("type_list", this.type_list)
   }
 }
 </script>
