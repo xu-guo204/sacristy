@@ -32,3 +32,67 @@ function selectionSort(list) {
 }
 
 console.log(selectionSort([3,1,2,7,5,4]))
+
+// 插入排序 打扑克取牌 --- 待优化
+function insertSort(list) {
+  if (list.length <= 1) {
+    return list
+  }
+  let left_list = [];
+  for (let i = 0; i < list.length; i ++) {
+    if (left_list.length > 0) {
+      for (let j = 0; j < left_list.length; j++) {
+        if (list[i] < left_list[j]) {
+          left_list.splice(j, 0, list[i])
+          break;
+        }
+        if (j === (left_list.length - 1)) {
+          left_list.push(list[i])
+          break;
+        }
+      }
+    } else {
+      left_list.push(list[i])
+    }
+  }
+  return left_list
+}
+
+console.log(insertSort([3,1,2,7,5,4]))
+
+
+// 归并排序 -- 递归法排序，分成左右两部分
+// 分，while循环排序，合并
+function mergeSort(list) {
+  if (list.length <= 1) {
+    return list
+  }
+  let middle = Math.floor((list.length)/2)
+  let left = list.slice(0, middle)
+  let right = list.slice(middle)
+  return mergeList(mergeSort(left), mergeSort(right))
+}
+function mergeList(left, right) {
+  let mList = [];
+  console.log('@@@@@@@@@@@@@', left ,right)
+  while (left[0] && right[0]) {
+    if (left[0] >= right[0]) {
+      mList.push(right.splice(0, 1)[0])
+    } else {
+      mList.push(left.splice(0, 1)[0])
+    }
+  }
+  while (left[0]) {
+    mList.push(left.splice(0, 1)[0])
+  }
+  while (right[0]) {
+    mList.push(right.splice(0, 1)[0])
+  }
+  console.log('!!!!!!!!!!!!!!!!', mList)
+  return mList
+}
+console.log(mergeSort([3,1,2,7,5,4]))
+
+
+// 快速排序
+

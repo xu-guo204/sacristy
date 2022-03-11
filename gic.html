@@ -1,0 +1,813 @@
+{dede:include filename="header.htm"/}
+<div class="page-body">
+    <div class="qqyfwq-banner">
+        <div class="content-area" style="position: relative; z-index:10;">
+            <div class="producr-menu">
+                <ul>
+                    {dede:channelartlist typeid=2} 
+					<li class="product-menu-one" id="{dede:field name='typeid'/}">
+                        <i></i>
+                        <span>{dede:field name='typename'/}</span>
+                        <ul>
+                            {dede:sql sql='Select * from `sdzx_arctype` where reid=~id~ AND ishidden!=1 ORDER BY sortrank, id'}
+							<li class="product-menu-two" id="[field:id/]">
+                                
+                                <span><a href="[field:typedir function='cn_substr(@me,200,9) ' /]">[field:typename/]</a></span>
+                            </li>
+							{/dede:sql}
+                        </ul>
+                    </li>
+                   {/dede:channelartlist}
+                </ul>
+            </div>
+            <input type="hidden" value="19,95" id="ProductsSer">
+            <div class="product-banner-banner">
+                <div style="padding:50px 0 30px 0;">全球云服务器</div>
+                <ul>
+                    <li>全球部署</li>
+                    <li>一体化混合云</li>
+                    <li>高效、稳定</li>
+                    <li>弹性、低成本</li>
+                </ul>
+                <a href="https://gic.capitalonline.net/" target="_blank">立即购买</a>
+            </div>
+        </div>
+    </div>
+    <div class="about-menu">
+        <div>
+            <div class="content-area" style="padding-left:235px;">
+                <ul class="about-menu-list proser-child-nav-list clearfix">
+                    <li><a href="#product-ms">产品概述</a></li>
+                    <li><a href="#product-trait">产品特点</a></li>
+                    <!-- <li><a href="#product-docs">价格查询</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="product-discrption">
+        <div class="content-area" style="padding-left:235px; padding-bottom:30px;">
+            <div class="product-discrption-title" id="product-ms"><div>产品概述</div></div>
+            <div class="cdn-product-desc">
+                <p>首云全球云服务器（GIC）基于高规格物理集群搭建，能够为您提供性能强大、运行稳定的计算能力。</p>
+            </div>
+
+            <div class="product-discrption-title" id="product-trait"><div>产品特点</div></div>
+            <div class="cdn-price-search">
+                <h3>全球部署</h3>
+                <p>覆盖中国大陆、北美、欧洲、东南亚等地区的17个城市；</p>
+                <p>5分钟完成全球业务多点部署；</p>
+                <p>全球MPLS骨干网络。</p>
+
+                <h3>一体化混合云</h3>
+                <p>完善的业务支撑系统及自动化操作平台；</p>
+                <p>自动化监控运维体系，实时了解全球网络拓扑情况；</p>
+                <p>提供控制台、API等多管理渠道；</p>
+                <p>通过专线接入，将IDC机柜、on-premises主机接入云平台。</p>
+
+                <h3>弹性、低成本</h3>
+                <p>丰富的云服务器规格、多种主流操作系统可供选择；</p>
+                <p>CPU、内存、带宽、硬盘均可自由控制，在线升级；</p>
+                <p>提供包年包月及按需付费,可随时切换,提供灵活的计费方式供您选择。</p>
+
+                <h3>稳定</h3>
+                <p>Cisco等高端品牌服务器提供计费能力；</p>
+                <p>7 : 1的比例部署集群备机保障资源，保障高弹性需求。</p>
+            </div>
+            <!-- <div class="product-discrption-title" id="product-docs"><div>价格查询</div></div>
+            <div class="cdn-price-search">
+                  <p style="font-size: 14px;font-weight: 800;color: #333;">文档中的价格以4核为例</p>
+                  <h3>国内价格方案</h3>
+                  <h3>云服务器按需价格方案</h3>
+                  <table border="1" cellpadding="0" cellspacing="0" class="price-table-more">
+                    <thead>
+                      <tr>
+                        <td>
+                          大区</td>
+                                          <td>
+                          可用区</td>
+                        <td>
+                          计算类型</td>
+                        <td>
+                          配置</td>
+                        <td>
+                          单价<br />
+                          （元/小时）</td>
+                        <td>
+                          单价<br />
+                          （元/天）</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td rowspan="12">
+                          中国大陆</td>
+                        <td rowspan="12">
+                          北京、上海、广州、无锡</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>0.74</td>
+                                          <td>17.81</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>0.78</td>
+                        <td>18.72</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>1.00</td>
+                        <td>24.00</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>1.33</td>
+                        <td>31.92</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>0.74</td>
+                        <td>17.81</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>0.78</td>
+                        <td>18.72</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>1.00</td>
+                        <td>24.00</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>1.33</td>
+                        <td>31.92</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>0.74</td>
+                        <td>17.81</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>0.78</td>
+                        <td>18.72</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>1.00</td>
+                        <td>24.00</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>1.33</td>
+                        <td>31.92</td>
+                      </tr>
+                                
+                    </tbody>
+                  </table>
+                  <br />
+                  <h3>
+                    云服务器包年包月价格方案</h3>
+                  <table border="1" cellpadding="0" cellspacing="0" class="price-table-more">
+                    <thead>
+                      <tr>
+                        <td>
+                          大区</td>
+                                          <td>
+                          可用区</td>
+                        <td>
+                          计算类型</td>
+                        <td>
+                          配置</td>
+                        <td>
+                          单价<br />
+                          （元/月）</td>
+                        <td>
+                          单价<br />
+                          （元/年）</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td rowspan="12">
+                          中国大陆</td>
+                        <td rowspan="12">
+                          北京、上海、广州、无锡</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>355.20</td>
+                                          <td>4262.35</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>374.00</td>
+                        <td>4488.00</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>480.00</td>
+                        <td>5760.00</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>636.00</td>
+                        <td>7632.00</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>355.20</td>
+                        <td>4262.35</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>374.00</td>
+                        <td>4488.00</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>480.000</td>
+                        <td>5760.00</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>636.00</td>
+                        <td>7632.00</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>355.20</td>
+                        <td>4262.35</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>374.00</td>
+                        <td>4488.00</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>480.00</td>
+                        <td>5760.00</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>636.00</td>
+                        <td>7632.00</td>
+                      </tr>
+                                
+                    </tbody>
+                  </table>
+                  <br />
+
+                  <br/>
+                  <p style="font-size: 16px;font-weight: 800;color: #333;">
+                    海外价格方案
+                  </p>
+                  <h3>
+                    云服务器按需价格方案</h3>
+                  <p style="font-size: 14px;font-weight: 800;color: #333;">
+                    文档中的价格以新加坡、达拉斯、法兰克福为例
+                  </p>
+                  <table border="1" cellpadding="0" cellspacing="0" class="price-table-more">
+                    <thead>
+                      <tr>
+                        <td>
+                          大区</td>
+                                          <td>
+                          可用区</td>
+                        <td>
+                          计算类型</td>
+                        <td>
+                          配置</td>
+                        <td>
+                          单价<br />
+                          （元/小时）</td>
+                        <td>
+                          单价<br />
+                          （元/天）</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td rowspan="12">
+                          亚太地区</td>
+                        <td rowspan="12">
+                          新加坡</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>1.16</td>
+                                          <td>27.91</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>1.22</td>
+                        <td>29.28</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>1.62</td>
+                        <td>38.88</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>2.04</td>
+                        <td>48.96</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>1.16</td>
+                        <td>27.91</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>1.22</td>
+                        <td>29.28</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>1.62</td>
+                        <td>38.88</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>2.04</td>
+                        <td>48.96</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>1.16</td>
+                        <td>27.91</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>1.22</td>
+                        <td>29.28</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>1.62</td>
+                        <td>38.88</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>2.04</td>
+                        <td>48.96</td>
+                      </tr>
+                                  <tr>
+                        <td rowspan="12">
+                          北美地区</td>
+                        <td rowspan="12">
+                          达拉斯</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>1.01</td>
+                                          <td>24.27</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>1.06</td>
+                        <td>25.44</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>1.30</td>
+                        <td>31.20</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>1.70</td>
+                        <td>40.80</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>1.01</td>
+                        <td>24.27</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>1.06</td>
+                        <td>25.44</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>1.30</td>
+                        <td>31.20</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>1.70</td>
+                        <td>40.80</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>1.01</td>
+                        <td>24.27</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>1.06</td>
+                        <td>25.44</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>1.30</td>
+                        <td>31.20</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>1.70</td>
+                        <td>40.80</td>
+                      </tr>
+                                  <tr>
+                        <td rowspan="12">
+                          欧洲地区</td>
+                        <td rowspan="12">
+                          法兰克福</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>1.14</td>
+                                          <td>27.38</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>1.20</td>
+                        <td>28.80</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>1.56</td>
+                        <td>37.44</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>2.04</td>
+                        <td>48.96</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>1.14</td>
+                        <td>27.38</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>1.20</td>
+                        <td>28.80</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>1.56</td>
+                        <td>37.44</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>2.04</td>
+                        <td>48.96</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>1.14</td>
+                                          <td>27.38</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>1.20</td>
+                        <td>28.80</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>1.56</td>
+                        <td>37.44</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>2.04</td>
+                        <td>48.96</td>
+                      </tr>
+                                
+                    </tbody>
+                  </table>
+                  <br />
+                  <h3>
+                    云服务器包年包月价格方案</h3>
+                  <table border="1" cellpadding="0" cellspacing="0" class="price-table-more">
+                    <thead>
+                      <tr>
+                        <td>
+                          大区</td>
+                                          <td>
+                          可用区</td>
+                        <td>
+                          计算类型</td>
+                        <td>
+                          配置</td>
+                        <td>
+                          单价<br />
+                          （元/月）</td>
+                        <td>
+                          单价<br />
+                          （元/年）</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td rowspan="12">
+                          亚太地区</td>
+                        <td rowspan="12">
+                          新加坡</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>568.12</td>
+                                          <td>6817.50</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>597.52</td>
+                        <td>7170.24</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>769.30</td>
+                        <td>9231.60</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>946.92</td>
+                        <td>11363.04</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>568.12</td>
+                                          <td>6817.50</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>597.52</td>
+                        <td>7170.24</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>769.30</td>
+                        <td>9231.60</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>946.92</td>
+                        <td>11363.04</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>568.12</td>
+                                          <td>6817.50</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>597.52</td>
+                        <td>7170.24</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>769.30</td>
+                        <td>9231.60</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>946.92</td>
+                        <td>11363.04</td>
+                      </tr>
+                                  <tr>
+                        <td rowspan="12">
+                          北美地区</td>
+                        <td rowspan="12">
+                          达拉斯</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>464.46</td>
+                                          <td>5573.56</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>488.86</td>
+                        <td>5866.32</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>601.70</td>
+                        <td>7220.40</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>779.18</td>
+                        <td>9350.16</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>464.46</td>
+                                          <td>5573.56</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>488.86</td>
+                        <td>5866.32</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>601.70</td>
+                        <td>7220.40</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>779.18</td>
+                        <td>9350.16</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>464.46</td>
+                                          <td>5573.56</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>488.86</td>
+                        <td>5866.32</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>601.70</td>
+                        <td>7220.40</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>779.18</td>
+                        <td>9350.16</td>
+                      </tr>
+                                  <tr>
+                        <td rowspan="12">
+                          欧洲地区</td>
+                        <td rowspan="12">
+                          法兰克福</td>
+                        <td>密集计算型ic3v2</td>
+                        <td>4C4G</td>
+                        <td>576.28</td>
+                                          <td>6915.37</td>
+                      </tr>
+                      <tr>
+                        <td>计算型c3v2</td>
+                        <td>4C8G</td>
+                        <td>606.58</td>
+                        <td>7278.96</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g3v2</td>
+                        <td>4C16G</td>
+                        <td>808.72</td>
+                        <td>9704.64</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r3v2</td>
+                        <td>4C32G</td>
+                        <td>946.92</td>
+                        <td>11363.04</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic2v2</td>
+                        <td>4C4G</td>
+                        <td>576.28</td>
+                                          <td>6915.37</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c2v2</td>
+                        <td>4C8G</td>
+                        <td>606.58</td>
+                        <td>7278.96</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g2v2</td>
+                        <td>4C16G</td>
+                        <td>808.72</td>
+                        <td>9704.64</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r2v2</td>
+                        <td>4C32G</td>
+                        <td>946.92</td>
+                        <td>11363.04</td>
+                      </tr>
+                                  <tr>
+                        <td>密集计算型ic1v2</td>
+                        <td>4C4G</td>
+                        <td>576.28</td>
+                                          <td>6915.37</td>
+                      </tr>
+                                  <tr>
+                        <td>计算型c1v2</td>
+                        <td>4C8G</td>
+                        <td>606.58</td>
+                        <td>7278.96</td>
+                      </tr>
+                                  <tr>
+                        <td>通用型g1v2</td>
+                        <td>4C16G</td>
+                        <td>808.72</td>
+                        <td>9704.64</td>
+                      </tr>
+                                  <tr>
+                        <td>内存型r1v2</td>
+                        <td>4C32G</td>
+                        <td>946.92</td>
+                        <td>11363.04</td>
+                      </tr>
+                                
+                    </tbody>
+                  </table>
+            </div> -->
+        </div>
+    </div>
+ </div>
+
+<script type="text/javascript">
+    $(function(){
+        SetScroll_Ser();
+        window.onscroll = function(){ SetScroll_Ser();}
+    });
+</script>
+{dede:include filename="footer.htm"/}
