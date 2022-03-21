@@ -95,4 +95,20 @@ console.log(mergeSort([3,1,2,7,5,4]))
 
 
 // 快速排序
-
+// 取一个基数，左边列表小于基数，右边列表大于基数，最后合并
+function quickSort(list) {
+  if (list.length <= 1) {
+    return list
+  }
+  let left = [];
+  let right = [];
+  for (let i = 1; i < list.length; i++) {
+    if (list[i] <= list[0]) {
+      left.push(list[i])
+    } else {
+      right.push(list[i])
+    }
+  }
+  return [...quickSort(left), list[0], ...quickSort(right)]
+}
+console.log(quickSort([3,1,2,7,5,4]))

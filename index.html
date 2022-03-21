@@ -135,5 +135,15 @@
         }
       })
     </script>
+
+    <script>
+      const os = require('os')
+      const getIP = () => {
+        const interfaces = os.networkInterfaces();
+        console.log('interfaces', interfaces)
+      }
+      getIP()
+    </script>
+  
   </body>
 </html>
